@@ -1,0 +1,131 @@
+body#loginBody{
+	background: url('../images/login-background.jpg') no-repeat center center fixed;
+	background-size: cover;
+}
+
+body{	
+	font-family: arial;
+}
+div.loginHeader{
+	text-align: center;
+}
+.alignLeft{
+	text-align: left;
+}
+div.loginHeader{
+	margin-bottom: 150px;
+}
+div.loginHeader h1{
+	font-size: 100px;
+	color:#ff7f9f;
+	padding:0px;
+	margin:0px;
+}
+div.loginHeader p{
+	color:#ffdae3;
+	font-size: 50px;
+	margin:0px;
+	text-transform: uppercase;
+	display: inline-block;
+}
+
+div.loginHeader p:after{
+	content:'';
+	display: block;
+	height: 5px;
+	background: #f685a2;
+	margin:0 auto;
+}
+div.loginBody form{
+	margin:0 auto;
+	width: 450px;
+	background: rgba(0,0,0,.5);
+	padding:50px;
+	border:2px solid #fff;
+	border-radius: 8px;
+}
+
+div.loginInputsContainer{
+	margin-top:30px;
+}
+
+div.loginInputsContainer label{
+	display: block;
+	text-transform: uppercase;
+	font-size: 20px;	
+	font-weight: bold;
+	color:#fff;
+}
+
+div.loginInputsContainer input{
+	height: 30px;
+	width:100%;
+	border:2px solid #d40339;
+	font-size:20px;
+	padding:5px;
+	text-align: center;
+	font-style: italic;
+}
+div.loginButtonContainer{
+	margin-top:40px;
+	text-align: center;
+}
+
+div.loginButtonContainer button{
+	font-size: 20px;
+	padding: 10px 40px;
+	background: #f685a2;
+	border:none;
+	color: #fff;
+}
+
+div.header{
+	width:100%;
+	height: 20px;
+	background:#f685a1;
+}
+div.banner{
+	background: url('../images/banner.jpg') no-repeat center center fixed;
+	background-size: cover;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+div.homepageContainer{
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+}
+div.bannerHead h1{
+	font-size: 80px;
+	color:#f685a1
+}
+div.bannerHead p{
+	font-size: 40px;
+	color:#f685a1;
+	text-transform: uppercase;
+	margin-top: -40px;
+	line-height: 100%;
+}
+p.bannerTagline{
+	font-size: 30px;
+	margin-top: -20px;
+	font-size: 25px;
+	color:#fff
+}
+div.bannerIcons{
+	margin-top:50px;
+	
+}
+div.bannerIcons i{
+	font-size:20px;
+	margin-left:30px;
+	padding:7px 15px;
+	border-radius: 50%;
+	/* width:50%;
+	height:50px; */
+
+}
+div.bannerIcons a:hover{
+	color:#fff;
+	background: #f685a1;
+}
