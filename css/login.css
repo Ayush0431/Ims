@@ -17,12 +17,12 @@ div.loginHeader{
 }
 div.loginHeader h1{
 	font-size: 100px;
-	color:#ff7f9f;
+	color:rgb(255, 255, 255);
 	padding:0px;
 	margin:0px;
 }
 div.loginHeader p{
-	color:#ffdae3;
+	color:#ffff;
 	font-size: 50px;
 	margin:0px;
 	text-transform: uppercase;
@@ -33,13 +33,13 @@ div.loginHeader p:after{
 	content:'';
 	display: block;
 	height: 5px;
-	background: #f685a2;
+	background: #ffff;
 	margin:0 auto;
 }
 div.loginBody form{
 	margin:0 auto;
 	width: 450px;
-	background: rgba(0,0,0,.5);
+	background: #ffffff;
 	padding:50px;
 	border:2px solid #fff;
 	border-radius: 8px;
@@ -60,7 +60,7 @@ div.loginInputsContainer label{
 div.loginInputsContainer input{
 	height: 30px;
 	width:100%;
-	border:2px solid #d40339;
+	border:2px solid #f4f3f3;
 	font-size:20px;
 	padding:5px;
 	text-align: center;
@@ -74,7 +74,7 @@ div.loginButtonContainer{
 div.loginButtonContainer button{
 	font-size: 20px;
 	padding: 10px 40px;
-	background: #f685a2;
+	background: #ffff;
 	border:none;
 	color: #fff;
 }
@@ -82,7 +82,7 @@ div.loginButtonContainer button{
 div.header{
 	width:100%;
 	height: 20px;
-	background:#f685a1;
+	background:#ffff;
 }
 div.banner{
 	background: url('../images/banner.jpg') no-repeat center center fixed;
@@ -97,11 +97,11 @@ div.homepageContainer{
 }
 div.bannerHead h1{
 	font-size: 80px;
-	color:#f685a1
+	color:#ffff
 }
 div.bannerHead p{
 	font-size: 40px;
-	color:#f685a1;
+	color:#fff;
 	text-transform: uppercase;
 	margin-top: -40px;
 	line-height: 100%;
@@ -117,15 +117,17 @@ div.bannerIcons{
 	
 }
 div.bannerIcons i{
-	font-size:20px;
+	font-size:23px;
 	margin-left:30px;
 	padding:7px 15px;
 	border-radius: 50%;
-	/* width:50%;
-	height:50px; */
+    /* width: 50%;
+	height: 50px; */
+	/* display: inline-block; */
 
 }
 div.bannerIcons a:hover{
 	color:#fff;
-	background: #f685a1;
+	background: #ffffff;
+	font-size: 25px;
 }
