@@ -161,6 +161,46 @@ div.homepageFeature p.featureDescription{
 div.homepageNotified{
 	display: flex;
 	flex-direction: row;
+	padding: 50px 0px;
+	background: #e3e3e3;
+}
+div.socials{
+	text-align: center;
+	padding: 50px 0 20px 0px;
+}
+p.socialText{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+div.socialIconsContainer a{
+	font-size: 23px;
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	padding-top: 25px;
+	background: #848484;
+	border-radius: 50%;
+	color:#fff;
+	margin-left: 35px;
+	margin-top: 20px;
+}
+h3.socialHeader{
+	font-size: 25px;
+}
+div.socialIconsContainer a:hover{
+	background: #000000;
+	transition: 0.3s all;
+}
+div.footer {
+	background: #e3e3e3;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+div.footer a{
+	color:#848484;
+	margin-left: 30px;
+	text-decoration: none;
 }
 /* //CSS OF DASHBOARD */
 #dashboardMainContainer{
@@ -172,7 +212,7 @@ div.homepageNotified{
   background: #323232;
   height: 100vh;
   }
-  div.dasboard content_container{
+  div.dasboard_content_container{
   width: 80%;
   background: #f4f6f9;
   }
@@ -188,11 +228,11 @@ div.homepageNotified{
   border-bottom: 1px solid #fff;
   }
   div.dashboard_sidebar_user img{
-  width:80px;
+  width:50px;
   display: inline-block; 
   border-radius: 50%;
   border:2px solid #f685a1;
-   margin-right:5px;
+  margin-right:5px;
   vertical-align: middle;
   }
   div.dashboard_sidebar_user span{
@@ -235,9 +275,15 @@ div.homepageNotified{
   div.dashboard_topNav a{
 	  color:#848383 ;
 	  font-size:18px;
+	  padding: 20px;
+	  margin-top: 10px;
 	  text-decoration: none;
-  }
-  a#logoutbtn{
+
+	}
+	a#toggleBtn{
+		padding-top:20px;
+	}
+  a#logoutBtn{
 	  float: right;
   }
   div.dashboard_content{
