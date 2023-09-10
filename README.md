@@ -4,4 +4,4 @@ This is a project on Inventory Management System , a desktop app which helps in 
 
 This is used to store and collect data from the stores and manage retailing sales and managing customers
 
-Added by harsh
+Added by harsh Sharma
