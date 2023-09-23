@@ -17,11 +17,16 @@
 <div class= "dashboard_sidebar_menus">
      <ul class="dashboard_menu_lists">
      <li cLass="menuActive">
-<a href="" ><i class="fa fa-dashboard"></i><span class="menuText" > Dashboard </span></a>
-</li>
- <li>
-    <a href=""><i class="fa fa-dashboard"></i><span class="menuText" > Sidebar </span></a>
-</li> 
+        <a href="" ><i class="fa fa-dashboard"></i><span class="menuText" > Dashboard </span></a>
+     <li>
+     <li>
+        <a href=""><i class="fa fa-bullhorn"></i><span class="menuText" > Sidebar </span></a>
+     <li>
+        <a href=""><i class="fa fa-gears"></i><span class="menuText" > About Us </span></a>
+     <li>
+     <li>
+        <a href=""><i class="fa fa-line-chart"></i><span class="menuText" > Logout </span></a>
+     <li> 
 </ul>
 </div> 
 </div>

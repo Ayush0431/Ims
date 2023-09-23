@@ -17,8 +17,8 @@
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			$user =$stmt->fetchAll()[0];
 			$_SESSION['user']=$user;
-			var_dump($_SESSION['user']);
-			die;
+			
+			header('Location: dashboard.php');
 		}else $error_message ='Please enter the username and password correctly';
 	 }
 ?>
@@ -33,7 +33,7 @@
 <body id="loginBody">
 	<?php if(!empty($error_message)){?>
 	<div id="errorMessage">
-		<p><strong>Error </strong> :<?= $error_message?> </p>
+		<p><strong>Error :</strong> <?= $error_message?> </p>
     </div>
      <?php }?>
 	<div class="container">
