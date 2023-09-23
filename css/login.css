@@ -295,3 +295,11 @@ div.footer a{
 	  min-height: 800px;
 	  height: 100%;
   }
+  div#errorMessage{
+
+	background-color: #fff;
+	text-align: center;
+	color:red;
+	font-size:20px;
+	padding: 11px;
+  }
