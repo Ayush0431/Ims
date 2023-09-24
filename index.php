@@ -6,7 +6,11 @@
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
   </head>
   <body>
-    <div class="header"></div>
+    <div class="header">
+      <div class="homepageContainer">
+        <a href ="login.php">LOGIN</a>
+      </div>
+    </div>
       <div class="banner">
         <div class="homepageContainer">
         <div class="bannerHead">
