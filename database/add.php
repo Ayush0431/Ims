@@ -10,13 +10,28 @@ $password= $_POST['password'];
 $encrypted = password_hash($password, PASSWORD_DEFAULT);
 
 // adding the record
-$command = "INSERT INTO
+try {
+    $command = "INSERT INTO
                        $table_name(first_name, last_name, email, password, created_at, updated_at)
                        VALUES
-                       ('".$first_name."', '".$last_name."', '".$email."', '".$encrypted."', NOW(), NOW()";
+                       ('".$first_name."', '".$last_name."', '".$email."', '".$encrypted."', NOW(), NOW() )";
                        
   include('connection.php');
-  $conn->exec($command);                   
 
-  
+  $conn->exec($command);       
+  $response = [
+    'success' => true,
+    'message' => $first_name . ' ' . $last_name . ' successfully added to the system.'
+  ];
+} catch (PDOException $e) {
+  $response = [
+    'success' => false,
+    'message' => $e->getMessage()
+  ];
+}   
+
+$_SESSION['response'] = $response;
+header('location: ../users-add.php');
+
 ?>
+

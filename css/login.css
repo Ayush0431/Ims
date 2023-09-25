@@ -342,3 +342,15 @@ button.appBtn{
   float: right;
 
 }
+p.responseMessage{
+  font-size: 18px;
+  text-align: center;
+  margin-top: 33px;
+  padding: 20px;
+}
+p.responseMessage_error{
+  background: rgba(0, 128, 0, 0.1);
+}
+p.responseMessage_success{
+  background: rgba(0, 128, 0, 0.1);
+}
