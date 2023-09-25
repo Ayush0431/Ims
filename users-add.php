@@ -16,18 +16,41 @@ $user = $_SESSION['user'];
 <body>
     <div id="dashboardMainContainer">
         <?php include('partials/app-sidebar.php') ?>
-
-        </div>
+</div>
+        
         <div class="dasboard_content_container" id="dasboard_content_container">
         <?php include('partials/app-topnav.php') ?>
-
-    
             <div class="dashboard_content">
                 <div class="dashboard_content_main">
+                    <div id="userAddFormContainer">
+
+                    <form action="database/user-add.php" method="POST" class="appForm">
+                    <div class="appFormInputContainer">
+                        <label for="first_name">First Name</label>
+                        <input type="text" class="appFormInput" id="first_name" name="first_name"/>
                 </div>
+                <div class="appFormInputContainer">
+                <label for="last_name">Last Name</label>
+                        <input type="text" class="appFormInput" id="last_name" name="last_name"/> 
             </div>
-        </div>
-    </div>
+            <div class="appFormInputContainer">
+                <label for="email">email</label>
+                        <input type="text" class="appFormInput" id="email" name="email"/> 
+            </div>
+            <div class="appFormInputContainer">
+                <label for="password">Password</label>
+                        <input type="password" class="appFormInput" id="password" name="password"/> 
+            </div>
+
+            <button type="submit" class="appBtn"><i class="fa fa-plus"></i>Add User</button>
+        
+    </form>
+               </div>
+          </div>
+      </div>
+   </div>
+</div>
+
     <script src="js/script.js"> </script>
 </body>
 
