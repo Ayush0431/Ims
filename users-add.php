@@ -4,6 +4,7 @@ if(!isset($_SESSION['user'])) header('location :login.php');
 $_SESSION['table'] = 'users';
 $user = $_SESSION['user'];
 $users = include('database/show-users.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +86,8 @@ $is_success = $_SESSION['response']['success'];
                           </thead>
 
                            <tbody>
-                            <tr> 
+                             <?php foreach($users as &user){ ?>
+                                <tr> 
                                 <td>1</td>
                                 <td>Harsh</td>
                                 <td>Sharma</td>
@@ -93,6 +95,8 @@ $is_success = $_SESSION['response']['success'];
                                 <td>March 27, 2023 @ 12:30pm</td>
                                 <td>March 29,2023 @ 1:30pm</td>
                             </tr>
+                               <?php } ?>
+                            
                            </tbody>
 
                 
