@@ -68,11 +68,12 @@ $is_success = $_SESSION['response']['success'];
    </div>  
  
      
-             
-                         <div class="column column-7">
-                          <h1 class="section_header"><i class="fa fa-list"></i> List of Users</h1>
+                         
+   <div class="column column-7">   
+                <h1 class="section_header"><i class="fa fa-list"></i> List of Users</h1>
                   <div class="section_content">
                    <div class="users">
+                   
                           <table>
                           <thead>
                           <tr>
@@ -86,14 +87,14 @@ $is_success = $_SESSION['response']['success'];
                           </thead>
 
                            <tbody>
-                             <?php foreach($users as &user){ ?>
+                             <?php foreach($users as $index => $user){ ?>
                                 <tr> 
-                                <td>1</td>
-                                <td>Harsh</td>
-                                <td>Sharma</td>
-                                <td>hs41061@gmail.com</td>
-                                <td>March 27, 2023 @ 12:30pm</td>
-                                <td>March 29,2023 @ 1:30pm</td>
+                                <td><?= $index + 1 ?></td>
+                                <td><?= $user['first_name'] ?></td>
+                                <td><?= $user['last_name'] ?></td>
+                                <td><?= $user['email'] ?></td>
+                                <td><?= date('M d,Y @ h:i:s A', strtotime($user['created_at'])) ?></td>
+                                <td><?= date('M d,Y @ h:i:s A', strtotime($user['updated_at'])) ?></td>
                             </tr>
                                <?php } ?>
                             
@@ -101,9 +102,10 @@ $is_success = $_SESSION['response']['success'];
 
                 
                           </table>
+                          <p class="userCount"><?= count($users) ?> Users </p>
                    </div>
                   </div>
-
+                 
              
             
                </div>

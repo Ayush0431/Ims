@@ -398,4 +398,13 @@ table th{
 }
 table td{
   font-size: 13px;
+  text-align: center;
+
+}
+p.userCount{
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #f685a1;
 }
