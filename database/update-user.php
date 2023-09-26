@@ -3,7 +3,7 @@ $data = $_POST;
 $user_id = (int) $data['user_id'];
 $first_name =  $data['f_name'];
 $last_name =  $data['l_name'];
-$email = $data['email']
+$email = $data['email'];
 
  
 try {
