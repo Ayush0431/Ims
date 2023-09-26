@@ -160,7 +160,7 @@ $is_success = $_SESSION['response']['success'];
                         dataType:'json',
                         success: function(data){
                             if(data.success){
-                                if(window.alert(data.message)){
+                                if(window.confirm(data.message)){
                                     location.reload();                                
                             }
                         } else window.alert(data.message);
