@@ -160,9 +160,11 @@ $is_success = $_SESSION['response']['success'];
                    lname = targetElement.dataset.lname;
                    fullname = fname + ' ' + lname;
                   
-                  
-                   if(window.confirm('Are you sure to delete '+ fullname +'?')){
-                    $.ajax({
+                   BootstrapDialog.confirm({
+                    type: BootstrapDialog.TYPE_DANGER,
+                    message: 'Are you sure to delete '+ fullname +'?',
+                    callback: function(isDelete){
+                        $.ajax({
                         method: 'POST',
                         data:{
                             user_id: userId,
@@ -172,14 +174,27 @@ $is_success = $_SESSION['response']['success'];
                         url: 'database/delete-user.php',
                         dataType:'json',
                         success: function(data){
-                            if(data.success){
-                                if(window.confirm(data.message)){
-                                    location.reload();                                
-                            }
-                        } else window.alert(data.message);
+                                if(data.success){
+                                        BootstrapDialog.alert({
+                                            type: BootstrapDialog.TYPE_SUCCESS,
+                                            message: data.message,
+                                            callback: function(){
+                                                location.reload();
+                                            }
+                                        });
+                                 
+                                 } else         
+                                   BootstrapDialog.alert({
+                                            type: BootstrapDialog.TYPE_DANGER,
+                                            message: data.message,          
+                             });
+                                                            
                     }        
-                 })
-             }
+                 });
+
+                    }
+                   });
+
           }
              
              if(classList.contains('updateUser')){
