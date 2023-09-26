@@ -126,6 +126,7 @@ $is_success = $_SESSION['response']['success'];
 
 
     <script src="js/script.js"> </script>
+    <script src="jquery3.7.1.js"></script>
     <script>
         function script(){
          
@@ -147,13 +148,30 @@ $is_success = $_SESSION['response']['success'];
                    fullname = fname + ' ' + lname;
                   
                    if(window.confirm('Are you sure to delete '+ fullname +'?')){
-                     
+                     $.ajax({
+                        method: 'POST',
+                        data:{
+                            user_id: userId,
+                            f_name: fname,
+                            l_name: lname
+                        },
+                        url:'database/delete-user.php',
+                        dataType:'json',
+                        success: function(data){
+                            if(data.success){
+                                if(window.confirm(data.message)){
+                                    location.reload();                                
+                            }
+                        } else window.alert(data.message);
+                    } 
+                        
+                     })
                    } else {
                       console.log('will not delete');
                    }
 
 
-                }
+                     }
               });
             }
         }
