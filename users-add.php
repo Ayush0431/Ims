@@ -126,7 +126,7 @@ $is_success = $_SESSION['response']['success'];
 
 
     <script src="js/script.js"> </script>
-    <script src="js/jquery3.7.1.js"></script>
+    <script src="js/jquery/jquery3.7.1.js"></script>
     <script>
         function script(){
          
