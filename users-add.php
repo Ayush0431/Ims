@@ -222,10 +222,20 @@ $is_success = $_SESSION['response']['success'];
                                     dataType:'json',
                                     success: function(data){
                                      if(data.success){
-                                     if(window.confirm(data.message)){
-                                    location.reload();                                
-                               }
-                                 } else window.alert(data.message);
+                                        BootstrapDialog.alert({
+                                            type: BootstrapDialog.TYPE_SUCCESS,
+                                            message: data.message,
+                                            callback: function(){
+                                                location.reload();
+                                            }
+                                        });
+                                 
+                                 } else         
+                                   BootstrapDialog.alert({
+                                            type: BootstrapDialog.TYPE_DANGER,
+                                            message: data.message,
+                                        
+                             });
                             }        
                        });
                    }
