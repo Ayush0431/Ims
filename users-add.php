@@ -96,11 +96,11 @@ $is_success = $_SESSION['response']['success'];
                                 <td><?= $index + 1 ?></td>
                                 <td class="firstName"><?= $user['first_name'] ?></td>
                                 <td class="lastName"><?= $user['last_name'] ?></td>
-                                <td><?= $user['email'] ?></td>
+                                <td class="email"><?= $user['email'] ?></td>
                                 <td><?= date('M d,Y @ h:i:s A', strtotime($user['created_at'])) ?></td>
                                 <td><?= date('M d,Y @ h:i:s A', strtotime($user['updated_at'])) ?></td>
                                 <td>
-                                    <a href="" class="updateUser" > <i  class="fa fa-pencil"></i> Edit</a>
+                                    <a href="" class="updateUser" data-userid="<?= $user['id'] ?>"> <i  class="fa fa-pencil" ></i> Edit</a>
                                     <a href="" class="deleteUser" data-userid="<?= $user['id'] ?>" data-fname="<?= $user['first_name'] ?>" data-lname="<?= $user['last_name'] ?>">
                                      <i  class="fa fa-trash"></i> Delete</a>
                                     
@@ -177,13 +177,10 @@ $is_success = $_SESSION['response']['success'];
                                     location.reload();                                
                             }
                         } else window.alert(data.message);
-                    } 
-                        
-                     })
-                   } else {
-                      console.log('will not delete');
-                   }
+                    }        
+                 })
              }
+          }
              
              if(classList.contains('updateUser')){
                 e.preventDefault();
@@ -192,15 +189,53 @@ $is_success = $_SESSION['response']['success'];
                firstName = targetElement.closest('tr').querySelector('td.firstName').innerHTML;
                 lastName = targetElement.closest('tr').querySelector('td.lastName').innerHTML;
                  email   = targetElement.closest('tr').querySelector('td.email').innerHTML;
+                 userId = targetElement.dataset.userid;
+
 
                  BootstrapDialog.confirm({
-                    title: 'Update' + firstName + ' ' + lastName,
-                    message: firstName + ' ' + lastName + ' ' + email
-                 });
-             }
-              });
-            }
-        }
+                    title: 'Update ' + firstName + ' ' + lastName,
+                    message: '<form>\
+                    <div class="form-group">\
+                            <label for="firstName">First Name:</label>\
+                               <input type="text" class="form-control" id="firstName" value="'+ firstName +'">\
+                               </div>\
+                               <div class="form-group">\
+                            <label for="lastName">Last Name:</label>\
+                               <input type="text" class="form-control" id="lastName" value="'+ lastName +'">\
+                               </div>\
+                           <div class="form-group">\
+                            <label for="email">Email address:</label>\
+                               <input type="email" class="form-control" id="emailUpdate" value="'+ email +'">\
+                               </div>\
+                               </form>'
+                               callback: function(isUpdate){
+                                if(isUpdate){
+                                    $.ajax({
+                                    method: 'POST',
+                                    data:{
+                                    userId: userId,
+                                    f_name: document.getElementById('firstName').value,
+                                    l_name: document.getElementById('lastName').value,
+                                    email: document.getElementById('emailUpdate').value,
+                               },
+                                     url: 'database/update-user.php',
+                                    dataType:'json',
+                                    success: function(data){
+                                     if(data.success){
+                                     if(window.confirm(data.message)){
+                                    location.reload();                                
+                               }
+                                 } else window.alert(data.message);
+                            }        
+                       });
+                   }
+              }
+         });
+     }
+ });
+
+  }
+}
         var script = new script;
         script.initialize();
         </script>
