@@ -14,6 +14,9 @@ $users = include('database/show-users.php');
     <title>Dashboard - Inventory Management System</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <script src="https://use.fontawesome.com/0c7a3095b5.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.4/css/bootstrap-dialog.min.css" 
+    integrity="sha512-PvZCtvQ6xGBLWHcXnyHD67NTP+a+bNrToMsIdX/NUqhw+npjLDhlMZ/PhSHZN4s9NdmuumcxKHQqbHlGVqc8ow==" crossorigin="anonymous"
+     referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -43,7 +46,7 @@ $users = include('database/show-users.php');
 <div class="appFormInputContainer">
 <label for="email">email</label>
     <input type="text" class="appFormInput" id="email" name="email"/> 
-</div>
+</div> 
 <div class="appFormInputContainer">
 <label for="password">Password</label>
     <input type="password" class="appFormInput" id="password" name="password"/> 
@@ -64,16 +67,16 @@ $is_success = $_SESSION['response']['success'];
 </p>
 </div>
 <?php unset($_SESSION['response']); } ?>
+
 </div>
-   </div>  
- 
-     
-                         
-   <div class="column column-7">   
+</div>
+
+                   <div class="column column-7">
+    
                 <h1 class="section_header"><i class="fa fa-list"></i> List of Users</h1>
                   <div class="section_content">
                    <div class="users">
-                   
+                    
                           <table>
                           <thead>
                           <tr>
@@ -91,13 +94,13 @@ $is_success = $_SESSION['response']['success'];
                              <?php foreach($users as $index => $user){ ?>
                                 <tr> 
                                 <td><?= $index + 1 ?></td>
-                                <td><?= $user['first_name'] ?></td>
-                                <td><?= $user['last_name'] ?></td>
+                                <td class="firstName"><?= $user['first_name'] ?></td>
+                                <td class="lastName"><?= $user['last_name'] ?></td>
                                 <td><?= $user['email'] ?></td>
                                 <td><?= date('M d,Y @ h:i:s A', strtotime($user['created_at'])) ?></td>
                                 <td><?= date('M d,Y @ h:i:s A', strtotime($user['updated_at'])) ?></td>
                                 <td>
-                                    <a href="" > <i  class="fa fa-pencil"></i> Edit</a>
+                                    <a href="" class="updateUser" > <i  class="fa fa-pencil"></i> Edit</a>
                                     <a href="" class="deleteUser" data-userid="<?= $user['id'] ?>" data-fname="<?= $user['first_name'] ?>" data-lname="<?= $user['last_name'] ?>">
                                      <i  class="fa fa-trash"></i> Delete</a>
                                     
@@ -124,9 +127,19 @@ $is_success = $_SESSION['response']['success'];
    </div>
 </div>
 
-
+                            
     <script src="js/script.js"> </script>
     <script src="js/jquery/jquery3.7.1.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.4/js/bootstrap-dialog.js" 
+    integrity="sha512-AZ+KX5NScHcQKWBfRXlCtb+ckjKYLO1i10faHLPXtGacz34rhXU8KM4t77XXG/Oy9961AeLqB/5o0KTJfy2WiA==" crossorigin="anonymous" 
+    referrerpolicy="no-referrer"></script>
+    
     <script>
         function script(){
          
@@ -170,6 +183,20 @@ $is_success = $_SESSION['response']['success'];
                    } else {
                       console.log('will not delete');
                    }
+             }
+             
+             if(classList.contains('updateUser')){
+                e.preventDefault();
+
+
+               firstName = targetElement.closest('tr').querySelector('td.firstName').innerHTML;
+                lastName = targetElement.closest('tr').querySelector('td.lastName').innerHTML;
+                 email   = targetElement.closest('tr').querySelector('td.email').innerHTML;
+
+                 BootstrapDialog.confirm({
+                    title: 'Update' + firstName + ' ' + lastName,
+                    message: firstName + ' ' + lastName + ' ' + email
+                 });
              }
               });
             }
